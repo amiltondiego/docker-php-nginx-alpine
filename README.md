@@ -45,7 +45,7 @@ Start the Docker Container:
     make run
 Remove Container Image Docker:
 
-    make stop
+    make remove
 Destroy Image Docker:
 
     make destroy

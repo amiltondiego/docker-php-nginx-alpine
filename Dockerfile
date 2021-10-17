@@ -66,6 +66,7 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config/xdebug.conf /etc/php8/conf.d/50_xdebug.ini
 
 RUN mkdir -p /app/public
+RUN mkdir -p /var/log/supervisord && chmod -Rf 777 /var/log/supervisord
 WORKDIR /app
 
 EXPOSE 80

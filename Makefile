@@ -3,12 +3,12 @@ IMAGE = amiltondiego/docker-php-nginx-alpine
 TAG = latest
 
 run:
-	@ docker run -p 80:80 -v $(pwd):/app/public --name $(CONTAINER) -P $(IMAGE):$(TAG)
+	@ docker run -p 80:80 -v $(CURDIR):/app/public --name $(CONTAINER) -P $(IMAGE):$(TAG)
 
 image:
 	@ docker build -t $(IMAGE):$(TAG) .
 
-stop:
+remove:
 	@ docker rm -f $(CONTAINER)
 
 destroy:
