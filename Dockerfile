@@ -18,6 +18,9 @@ RUN apk update && \
 RUN apk --no-cache \
     add php8 \
     php8-fpm \
+    php8-tokenizer \
+    php8-xmlwriter \
+    php8-simplexml \
     php8-mysqli \
     php8-pdo_mysql \
     php8-sqlite3 \
@@ -37,6 +40,7 @@ RUN apk --no-cache \
     php8-xmlreader \
     php8-ctype \
     php8-mbstring \
+    php8-iconv \
     php8-gd \
     php8-pcntl \
     php8-opcache \
@@ -55,7 +59,7 @@ RUN apk del tzdata && \
 
 RUN sed -i "s|;date.timezone =.*|date.timezone=${TIMEZONE}|" /etc/php8/php.ini
 
-RUN ln -s /usr/bin/php8 /usr/bin/php
+#RUN ln -s /usr/bin/php8 /usr/bin/php
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
